@@ -1,0 +1,72 @@
+import { Clock, X } from 'lucide-react'
+import RollingCtaButton from './RollingCtaButton'
+import useIndiaTime from '../hooks/useIndiaTime'
+
+interface MobileMenuProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+const navLinks = ['Projects', 'Studio', 'Journal', 'Connect']
+
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const indiaTime = useIndiaTime()
+
+  return (
+    <div
+      className={`fixed inset-0 z-50 ${isOpen ? "" : "pointer-events-none"}`}
+      aria-hidden={!isOpen}
+    >
+      <div
+        className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${
+          isOpen ? "opacity-100" : "opacity-0"
+        }`}
+        onClick={onClose}
+      />
+
+      <div
+        className={`absolute inset-x-0 bottom-0 mx-3 mb-3 rounded-2xl bg-[#1a1a1a] p-6 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+          isOpen ? "translate-y-0" : "translate-y-full"
+        }`}
+      >
+        <div className="mb-6 flex items-center justify-between gap-3">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-gray-700 px-3 py-1.5 text-[13px] text-gray-100">
+            <Clock size={14} />
+            {indiaTime} in India
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-lg transition-colors h-10 px-4 font-medium inline-flex whitespace-nowrap gap-5 items-center justify-between cursor-pointer bg-[#1e1e1e] text-white hover:bg-[#931EE2] shadow-[0_1.5px_2px_0_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.15),0_-1px_0_0_rgba(255,255,255,0.5)] sm:w-auto"
+            aria-label="Close menu"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <nav className="flex flex-col gap-2">
+          {navLinks.map((link) => (
+            <a
+              key={link}
+              href="#"
+              onClick={onClose}
+              className="text-[28px] font-medium text-gray-200 sm:text-[32px]"
+            >
+              {link}
+            </a>
+          ))}
+        </nav>
+
+        <div className="mt-8">
+          <RollingCtaButton
+            label="Start a project"
+            buttonClassName="rounded-lg transition-colors h-10 px-4 font-medium flex whitespace-nowrap gap-5 items-center justify-between cursor-pointer bg-[#1e1e1e] text-white hover:bg-[#931EE2] shadow-[0_1.5px_2px_0_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.15),0_-1px_0_0_rgba(255,255,255,0.5)] w-full sm:w-auto"
+            arrowWrapClassName="h-7 w-7 bg-white"
+            arrowIconClassName="text-gray-900"
+            arrowIconSize={14}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
