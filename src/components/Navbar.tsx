@@ -14,7 +14,7 @@ export default function Navbar({ isMenuOpen, onToggleMenu }: NavbarProps) {
 
   return (
     <div className="mx-auto max-w-[1440px] p-2 sm:p-3">
-      <nav className="flex items-center justify-between rounded-[12px] border border-white/10 bg-black/10 px-[12px] ps-[24px] py-[12px] shadow-[0_25px_90px_-35px_rgba(15,23,42,0.7)] backdrop-blur-xl backdrop-saturate-[180%]">
+      <nav className="flex items-center justify-between rounded-[12px] border border-white/10 bg-black/10 px-[12px] ps-[24px] py-[12px] shadow-[0_1.5px_2px_0_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.1),0_-1px_0_0_rgba(255,255,255,0.3)] backdrop-blur-xl backdrop-saturate-[180%]">
         <div className="flex items-center gap-6">
           <div className="flex items-center justify-center">
             <img
