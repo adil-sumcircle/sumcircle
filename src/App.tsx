@@ -1,13 +1,11 @@
 import Hero from './components/Hero'
-import About from './components/About'
-import CaseStudies from './components/CaseStudies'
+import TrustSection from './components/TrustSection'
 
 function App() {
   return (
     <main className="min-h-screen bg-white">
       <Hero />
-      {/* <About /> */}
-      {/* <CaseStudies /> */}
+      <TrustSection />
     </main>
   )
 }

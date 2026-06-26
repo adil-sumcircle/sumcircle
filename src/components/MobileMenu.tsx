@@ -1,4 +1,4 @@
-import { Clock, X } from 'lucide-react'
+import { Clock, X, Phone } from "lucide-react";
 import RollingCtaButton from './RollingCtaButton'
 import useIndiaTime from '../hooks/useIndiaTime'
 
@@ -7,14 +7,22 @@ interface MobileMenuProps {
   onClose: () => void
 }
 
-const navLinks = ['Projects', 'Studio', 'Journal', 'Connect']
+const navLinks = [
+  "Company",
+  "Services",
+  "Solutions",
+  "Industries",
+  "Work",
+  "Resources",
+  "Leadership",
+];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const indiaTime = useIndiaTime()
 
   return (
     <div
-      className={`fixed inset-0 z-50 ${isOpen ? "" : "pointer-events-none"}`}
+      className={`fixed inset-0 z-50 sm:hidden ${isOpen ? "" : "pointer-events-none"}`}
       aria-hidden={!isOpen}
     >
       <div
@@ -37,7 +45,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg transition-colors h-10 px-4 font-medium inline-flex whitespace-nowrap gap-5 items-center justify-between cursor-pointer bg-[#1e1e1e] text-white hover:bg-[#931EE2] shadow-[0_1.5px_2px_0_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.15),0_-1px_0_0_rgba(255,255,255,0.5)] sm:w-auto"
+            className="rounded-lg transition-colors h-10 px-4 font-medium inline-flex whitespace-nowrap gap-5 items-center justify-between cursor-pointer bg-[#1e1e1e] text-white hover:bg-[#931EE2] shadow-[0_1.5px_2px_0_rgba(0,0,0,0.1),0_0_0_1px_rgba(256,256,256,0.09),0_-1px_0_0_rgba(255,255,255,0.15)] sm:w-auto"
             aria-label="Close menu"
           >
             <X size={18} />
@@ -59,11 +67,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         <div className="mt-8">
           <RollingCtaButton
-            label="Start a project"
-            buttonClassName="rounded-lg transition-colors h-10 px-4 font-medium flex whitespace-nowrap gap-5 items-center justify-between cursor-pointer bg-[#1e1e1e] text-white hover:bg-[#931EE2] shadow-[0_1.5px_2px_0_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.15),0_-1px_0_0_rgba(255,255,255,0.5)] w-full sm:w-auto"
-            arrowWrapClassName="h-7 w-7 bg-white"
-            arrowIconClassName="text-gray-900"
-            arrowIconSize={14}
+            label="Book a 30 Min Call"
+            buttonClassName="rounded-[10px] transition-colors ps-6 pe-1 py-1 font-medium sm:flex hidden whitespace-nowrap gap-5 items-center justify-between cursor-pointer bg-[#931EE2] text-white hover:bg-[#931EE2] w-full sm:w-auto"
+            arrowWrapClassName="bg-[#7A06C8] h-11 w-11 rounded-[6px]"
+            arrowIconClassName="text-white"
+            icon={Phone}
+            arrowIconSize={20}
           />
         </div>
       </div>
